@@ -1,18 +1,17 @@
-import { Geist, Geist_Mono } from "next/font/google";
+import { Geist, Geist_Mono, Poppins } from "next/font/google";
 import "./globals.css";
 import Link from "next/link";
 import { CartProvider } from "@/context/CartProvider";
-// import logo from "/logo.png"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const poppins = Poppins({
+  weight: ["400", "700"],
   subsets: ["latin"],
-});
+})
 
 export const metadata = {
   title:{
@@ -25,7 +24,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${poppins.className} antialiased`}
       >
         <header className="bg-orange-100">
           <div className="container flex items-center justify-between py-3 mx-auto">
@@ -35,7 +34,7 @@ export default function RootLayout({ children }) {
               </Link>
             </div>
             <div className="flex gap-4">
-              <Link className="btn" href="/foods">
+              <Link prefetch={false} className="btn" href="/foods">
                 Foods
               </Link>
               <Link className="btn" href="/reviews">

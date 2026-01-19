@@ -28,7 +28,7 @@ export default async function FoodPage({searchParams}) {
       <div>
         <InputSearch />
       </div>
-      <div className="container  mx-auto flex gap-5">
+      <div className="container mx-auto flex gap-5">
         <div className="grid grid-cols-3 gap-5 my-6">
           {foods.map((food) => (
             <FoodCard food={food} key={food.id} />
