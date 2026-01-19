@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { AddToCartButton } from "../buttons/AddToCartButton";
 
 export const FoodCard = ({ food }) => {
   return (
@@ -32,9 +33,7 @@ export const FoodCard = ({ food }) => {
         </p>
 
         <div className="flex gap-3">
-          <button className="flex-1 bg-orange-500 hover:bg-orange-600 text-white font-bold py-3 rounded-xl transition-colors shadow-md shadow-orange-200 text-sm">
-            Add to Cart
-          </button>
+          <AddToCartButton food={food} />
           <Link href={`/foods/${food.id}`} className="flex-1 bg-gray-50 hover:bg-gray-100 text-gray-700 font-bold py-3 rounded-xl border border-gray-200 transition-colors text-sm cursor-pointer text-center">
             View Details
           </Link>
