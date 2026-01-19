@@ -11,11 +11,27 @@ import {
   ArrowLeft,
 } from "lucide-react";
 
+export function generateStaticParams() {
+  return [{ id: "52898" }, { id: "52955" }, { id: "52926" }];
+}
+
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const res = await fetch(
+    `https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`,
+  );
+
+  const { details = {} } = await res.json();
+
+  return {
+    title: details.title,
+  }
+}
+
 const getSingleFood = async (id) => {
   try {
     const res = await fetch(
       `https://taxi-kitchen-api.vercel.app/api/v1/foods/${id}`,
-      { cache: "no-store" },
     );
     const data = await res.json();
     return data.details;
