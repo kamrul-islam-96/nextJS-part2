@@ -44,7 +44,7 @@ export default async function FoodDetailsPage({ params }) {
   const { id } = await params;
   const food = await getSingleFood(id);
 
-  if (!food) {
+  if (!food.title) {
     return (
       <div className="h-screen flex items-center justify-center bg-[#050505]">
         <div className="text-center space-y-4">
@@ -53,7 +53,7 @@ export default async function FoodDetailsPage({ params }) {
           </p>
           <h1 className="text-white text-3xl font-light">Dish not found</h1>
           <Link
-            href="/"
+            href="/foods"
             className="text-orange-500 text-sm hover:underline block pt-4"
           >
             Return to Menu
